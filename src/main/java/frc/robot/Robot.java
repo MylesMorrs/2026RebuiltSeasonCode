@@ -1,16 +1,25 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController.Axis;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.Constants.OIConstants;
+import frc.robot.subsystems.IntakeSubsystem;
+
 
 public class Robot extends TimedRobot {
+
+  private Joystick m_Joystick; 
+
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
 
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
+    m_Joystick = new Joystick(OIConstants.kManipulatorControllerPort); 
   }
 
   @Override
@@ -33,4 +42,23 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
   }
+
+  @Override
+  public void teleopPeriodic() {
+    if (m_Joystick.getRawButton(5))
+    {
+      IntakeSubsystem.SetIntakeSpeed(-m_Joystick.getRawAxis(Axis.kLeftTrigger.value));
+    }
+
+
+    else
+    {
+      IntakeSubsystem.SetIntakeSpeed(m_Joystick.getRawAxis(Axis.kLeftTrigger.value));
+    }
+
+    IntakeSubsystem.SetPivotSpeed(m_Joystick.getRawAxis(Axis.kLeftY.value));
+     
 }
+  }
+
+ 

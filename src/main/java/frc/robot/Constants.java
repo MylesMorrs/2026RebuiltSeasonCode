@@ -59,6 +59,17 @@ public final class Constants {
     public static final boolean kGyroReversed = false;
   }
 
+  public static final class IntakeConstants
+  {
+      //TODO Set intake Can IDS
+      public static final int FuelIntakeCanId = 5; 
+      public static final int IntakePivot1CanId = 6; 
+      public static final int IntakePivot2CanId = 7; 
+
+
+
+  }
+
   public static final class ModuleConstants {
     // The MAXSwerve module can be configured with one of three pinion gears: 12T,
     // 13T, or 14T. This changes the drive speed of the module (a pinion gear with
@@ -78,7 +89,9 @@ public final class Constants {
 
   public static final class OIConstants {
     public static final int kDriverControllerPort = 0;
+    public static final int kManipulatorControllerPort = 1; 
     public static final double kDriveDeadband = 0.05;
+
   }
 
   public static final class AutoConstants {
