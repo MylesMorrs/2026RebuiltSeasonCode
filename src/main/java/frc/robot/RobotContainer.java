@@ -13,9 +13,11 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.VisionSubsystem;
 
 public class RobotContainer {
   private final DriveSubsystem drive = new DriveSubsystem();
+  private final VisionSubsystem vision = new VisionSubsystem(drive);
   private final XboxController driver = new XboxController(OIConstants.kDriverControllerPort);
 
   private final SendableChooser<Command> autoChooser;

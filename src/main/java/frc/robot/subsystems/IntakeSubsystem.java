@@ -14,7 +14,6 @@ public class IntakeSubsystem {
         IntakePivotMotor1 = new SparkMax( IntakeConstants.IntakePivot1CanId, MotorType.kBrushless); 
         IntakePivotMotor2 = new SparkMax( IntakeConstants.IntakePivot2CanId, MotorType.kBrushless); 
 
-
     }
 
 

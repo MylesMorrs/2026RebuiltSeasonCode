@@ -4,6 +4,10 @@
 
 package frc.robot;
 
+import edu.wpi.first.apriltag.AprilTagFields;
+import edu.wpi.first.math.geometry.Rotation3d;
+import edu.wpi.first.math.geometry.Transform3d;
+import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
@@ -111,5 +115,49 @@ public final class Constants {
 
   public static final class NeoMotorConstants {
     public static final double kFreeSpeedRpm = 5676;
+  }
+
+  public static final class VisionConstants {
+    // Camera name must match PhotonVision UI exactly.
+    // TODO set camera name
+    public static final String kCameraName = "photonvision";
+
+    // Robot-to-camera transform (meters/radians): +X forward, +Y left, +Z up.
+    public static final Transform3d kRobotToCamera = new Transform3d(
+        new Translation3d(0.28, 0.0, 0.23),
+        new Rotation3d(0.0, 0.0, 0.0));
+
+    // Keep this at kDefaultField until you lock in event field type.
+    public static final AprilTagFields kAprilTagField = AprilTagFields.kDefaultField;
+
+    // Pose estimator model noise (odometry process noise): x, y, theta.
+    public static final double kStateStdDevX = 0.05;
+    public static final double kStateStdDevY = 0.05;
+    public static final double kStateStdDevTheta = 0.08;
+
+    // Base vision noise for single-tag updates: x, y, theta.
+    public static final double kVisionStdDevX = 1.0;
+    public static final double kVisionStdDevY = 1.0;
+    public static final double kVisionStdDevTheta = 1.8;
+
+    // Better trust for multi-tag solutions.
+    public static final double kVisionMultiTagStdDevX = 0.25;
+    public static final double kVisionMultiTagStdDevY = 0.25;
+    public static final double kVisionMultiTagStdDevTheta = 0.6;
+
+    // Measurement gating.
+    public static final double kMaxSingleTagAmbiguity = 0.20;
+    public static final double kMaxTagDistanceMeters = 4.5;
+    public static final double kMaxPoseZMeters = 0.35;
+    public static final double kMaxVisionPoseDeltaMeters = 2.0;
+    public static final double kMaxVisionPoseDeltaDeg = 35.0;
+
+    // Simulation camera properties.
+    public static final int kSimCameraWidthPx = 1280;
+    public static final int kSimCameraHeightPx = 720;
+    public static final double kSimCameraDiagFovDeg = 90.0;
+    public static final double kSimCameraFps = 30.0;
+    public static final double kSimAvgLatencyMs = 35.0;
+    public static final double kSimLatencyStdDevMs = 8.0;
   }
 }
