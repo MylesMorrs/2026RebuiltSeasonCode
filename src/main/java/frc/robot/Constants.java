@@ -65,7 +65,7 @@ public final class Constants {
 
   public static final class IntakeConstants
   {
-      //TODO Set intake Can IDS
+      
       public static final int FuelIntakeCanId = 5; 
       public static final int IntakePivot1CanId = 6; 
       public static final int IntakePivot2CanId = 7; 
@@ -79,11 +79,19 @@ public final class Constants {
 
   public static final class ShootingConstants
   {
-      //TODO set shooting Can IDs
+      
       public static final int ShooterMotorCanId = 12; 
       public static final int TransferMotorCanId = 13;
 
   }
+
+public static final class ClimbingConstants
+{
+    // TODO set can id
+    public static final int ClimbingMotorCanId = 22; 
+
+}
+
 
   public static final class ModuleConstants {
     // The MAXSwerve module can be configured with one of three pinion gears: 12T,

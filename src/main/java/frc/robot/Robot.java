@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootingSubsystem;
+import frc.robot.subsystems.ClimbingSubsystem;
 
 
 public class Robot extends TimedRobot {
@@ -55,6 +56,8 @@ public class Robot extends TimedRobot {
     if (m_Joystick.getRawAxis(Axis.kRightTrigger.value) > 10){
     ShootingSubsystem.SetTransferSpeed(0.5);
     }
+
+    ClimberSubsystem.SetClimberSpeed(m_Joystick.getRawAxis(Axis.kLeftY.value))
 }
   }
 
