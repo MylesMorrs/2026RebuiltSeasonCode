@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShootingSubsystem;
-import frc.robot.subsystems.ClimbingSubsystem;
+import frc.robot.subsystems.ClimberSubsystem;
 
 
 public class Robot extends TimedRobot {
@@ -57,7 +57,7 @@ public class Robot extends TimedRobot {
     ShootingSubsystem.SetTransferSpeed(0.5);
     }
 
-    ClimberSubsystem.SetClimberSpeed(m_Joystick.getRawAxis(Axis.kLeftY.value))
+    ClimberSubsystem.SetClimberSpeed(m_Joystick.getRawAxis(Axis.kLeftY.value));
 }
   }
 
