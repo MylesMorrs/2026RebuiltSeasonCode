@@ -46,18 +46,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    if (m_Joystick.getRawButton(5))
-    {
-      IntakeSubsystem.SetIntakeSpeed(-m_Joystick.getRawAxis(Axis.kLeftTrigger.value));
-    }
-
-
-    else
-    {
-      IntakeSubsystem.SetIntakeSpeed(m_Joystick.getRawAxis(Axis.kLeftTrigger.value));
-    }
-
-    IntakeSubsystem.SetPivotSpeed(m_Joystick.getRawAxis(Axis.kLeftY.value));
+    IntakeSubsystem.SetIntakeSpeed(m_Joystick.getRawAxis(Axis.kRightY.value));
+    IntakeSubsystem.SetPivotSpeed(m_Joystick.getRawAxis(Axis.kRightX.value));
      
 }
   }
