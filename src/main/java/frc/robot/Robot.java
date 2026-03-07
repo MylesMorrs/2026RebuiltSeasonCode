@@ -49,6 +49,11 @@ public class Robot extends TimedRobot {
     IntakeSubsystem.SetIntakeSpeed(m_Joystick.getRawAxis(Axis.kRightY.value));
     IntakeSubsystem.SetPivotSpeed(m_Joystick.getRawAxis(Axis.kRightX.value));
      
+
+    
+    ShootingSubsystem.SetShootingSpeed(m_Joystick.getRawAxis(Axis.kRightTrigger.value));
+    ShootingSubsystem.SetTransferSpeed(m_Joystick.getRawAxis(Axis.kRightTrigger.value));
+
 }
   }
 
