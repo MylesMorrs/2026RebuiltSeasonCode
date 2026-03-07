@@ -52,8 +52,9 @@ public class Robot extends TimedRobot {
 
     
     ShootingSubsystem.SetShootingSpeed(m_Joystick.getRawAxis(Axis.kRightTrigger.value));
-    ShootingSubsystem.SetTransferSpeed(m_Joystick.getRawAxis(Axis.kRightTrigger.value));
-
+    if (m_Joystick.getRawAxis(Axis.kRightTrigger.value) > 10){
+    ShootingSubsystem.SetTransferSpeed(0.5);
+    }
 }
   }
 
