@@ -82,13 +82,16 @@ public final class Constants {
       
       public static final int ShooterMotorCanId = 12; 
       public static final int TransferMotorCanId = 13;
+      public static final int AimingMotorCanId = 11; 
 
   }
 
 public static final class ClimbingConstants
 {
-    // TODO set can id
-    public static final int ClimbingMotorCanId = 22; 
+   
+    public static final int ClimbingMotorCanId = 10; 
+
+    
 
 }
 

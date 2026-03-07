@@ -57,7 +57,10 @@ public class Robot extends TimedRobot {
     ShootingSubsystem.SetTransferSpeed(0.5);
     }
 
-    ClimberSubsystem.SetClimberSpeed(m_Joystick.getRawAxis(Axis.kLeftY.value));
+    ClimberSubsystem.SetClimberSpeed(m_Joystick.getRawAxis(Axis.kLeftX.value));
+    ShootingSubsystem.SetAimingSpeed(m_Joystick.getRawAxis(Axis.kLeftY.value));
+
+
 }
   }
 
