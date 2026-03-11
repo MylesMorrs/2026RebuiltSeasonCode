@@ -108,11 +108,15 @@ public class VisionSubsystem extends SubsystemBase {
       }
 
       Pose2d currentPose = m_drive.getPose();
-      if (currentPose.getTranslation().getDistance(estimatedPose.getTranslation())
-              > VisionConstants.kMaxVisionPoseDeltaMeters
-          || Math.abs(
-                  currentPose.getRotation().minus(estimatedPose.getRotation()).getDegrees())
-              > VisionConstants.kMaxVisionPoseDeltaDeg) {
+      double maxDeltaMeters =
+          usedTargetCount >= 2 ? VisionConstants.kMaxVisionPoseDeltaMeters * 2.0
+                               : VisionConstants.kMaxVisionPoseDeltaMeters;
+      double maxDeltaDeg =
+          usedTargetCount >= 2 ? VisionConstants.kMaxVisionPoseDeltaDeg * 2.0
+                               : VisionConstants.kMaxVisionPoseDeltaDeg;
+      if (currentPose.getTranslation().getDistance(estimatedPose.getTranslation()) > maxDeltaMeters
+          || Math.abs(currentPose.getRotation().minus(estimatedPose.getRotation()).getDegrees())
+              > maxDeltaDeg) {
         rejectedMeasurements++;
         continue;
       }
