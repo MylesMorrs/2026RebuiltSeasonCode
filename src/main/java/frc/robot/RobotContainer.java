@@ -13,11 +13,11 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.VisionSubsystem;
+//import frc.robot.subsystems.VisionSubsystem;
 
 public class RobotContainer {
   private final DriveSubsystem drive = new DriveSubsystem();
-  private final VisionSubsystem vision = new VisionSubsystem(drive);
+ // private final VisionSubsystem vision = new VisionSubsystem(drive);
   private final XboxController driver = new XboxController(OIConstants.kDriverControllerPort);
 
   private final SendableChooser<Command> autoChooser;
@@ -28,16 +28,16 @@ public class RobotContainer {
     // NamedCommands.registerCommand("Example", Commands.print("Hi"));
 
     // Build auto chooser with a DEFAULT auto name that matches a .auto file
-    autoChooser = AutoBuilder.buildAutoChooser("L3 CoralScoring");
+    autoChooser = AutoBuilder.buildAutoChooser("new auto");
     SmartDashboard.putData("Auto Chooser", autoChooser);
 
     configureButtonBindings();
 
     drive.setDefaultCommand(new RunCommand(() -> {
       double db = OIConstants.kDriveDeadband;
-      double x   = -MathUtil.applyDeadband(driver.getLeftY(),  db);
-      double y   = -MathUtil.applyDeadband(driver.getLeftX(),  db);
-      double rot = -MathUtil.applyDeadband(driver.getRightX(), db);
+      double x   = -MathUtil.applyDeadband(1.5*driver.getLeftY(),  db);
+      double y   = -MathUtil.applyDeadband(1.5*driver.getLeftX(),  db);
+      double rot = -MathUtil.applyDeadband(1.5*driver.getRightX(), db);
       drive.drive(x, y, rot, fieldRelative);
     }, drive));
 

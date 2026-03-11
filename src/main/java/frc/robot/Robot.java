@@ -17,6 +17,11 @@ public class Robot extends TimedRobot {
 
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
+  private final IntakeSubsystem m_intake = new IntakeSubsystem();
+  private final ShootingSubsystem m_shooter = new ShootingSubsystem();
+  private final ClimberSubsystem m_climber = new ClimberSubsystem();
+
+
 
   @Override
   public void robotInit() {
@@ -53,10 +58,10 @@ public class Robot extends TimedRobot {
 
     
     ShootingSubsystem.SetShootingSpeed(m_Joystick.getRawAxis(Axis.kRightTrigger.value));
-    if (m_Joystick.getRawAxis(Axis.kRightTrigger.value) > 10){
-    ShootingSubsystem.SetTransferSpeed(0.5);
-    }
-
+    //if (m_Joystick.getRawAxis(Axis.kRightTrigger.value) > 0){
+    //ShootingSubsystem.SetTransferSpeed(-0.5);
+    //}
+    ShootingSubsystem.SetTransferSpeed(-m_Joystick.getRawAxis(Axis.kLeftTrigger.value));
     ClimberSubsystem.SetClimberSpeed(m_Joystick.getRawAxis(Axis.kLeftY.value));
     ShootingSubsystem.SetAimingSpeed(m_Joystick.getRawAxis(Axis.kLeftX.value));
 
