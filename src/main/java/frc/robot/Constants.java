@@ -141,8 +141,7 @@ public static final class ClimbingConstants
 
   public static final class VisionConstants {
     // Camera name must match PhotonVision UI exactly.
-    // TODO set camera name
-    public static final String kCameraName = "photonvision";
+    public static final String kCameraName = "Depstech_webcam";
 
     // Robot-to-camera transform (meters/radians): +X forward, +Y left, +Z up.
     public static final Transform3d kRobotToCamera = new Transform3d(
@@ -181,5 +180,6 @@ public static final class ClimbingConstants
     public static final double kSimCameraFps = 30.0;
     public static final double kSimAvgLatencyMs = 35.0;
     public static final double kSimLatencyStdDevMs = 8.0;
+
   }
 }
