@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.ShootingSubsystem;
+import frc.robot.subsystems.ClimberSubsystem;
 
 
 public class Robot extends TimedRobot {
@@ -45,19 +47,20 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    if (m_Joystick.getRawButton(5))
-    {
-      IntakeSubsystem.SetIntakeSpeed(-m_Joystick.getRawAxis(Axis.kLeftTrigger.value));
-    }
-
-
-    else
-    {
-      IntakeSubsystem.SetIntakeSpeed(m_Joystick.getRawAxis(Axis.kLeftTrigger.value));
-    }
-
-    IntakeSubsystem.SetPivotSpeed(m_Joystick.getRawAxis(Axis.kLeftY.value));
+    IntakeSubsystem.SetIntakeSpeed(m_Joystick.getRawAxis(Axis.kRightY.value));
+    IntakeSubsystem.SetPivotSpeed(m_Joystick.getRawAxis(Axis.kRightX.value));
      
+
+    
+    ShootingSubsystem.SetShootingSpeed(m_Joystick.getRawAxis(Axis.kRightTrigger.value));
+    if (m_Joystick.getRawAxis(Axis.kRightTrigger.value) > 10){
+    ShootingSubsystem.SetTransferSpeed(0.5);
+    }
+
+    ClimberSubsystem.SetClimberSpeed(m_Joystick.getRawAxis(Axis.kLeftY.value));
+    ShootingSubsystem.SetAimingSpeed(m_Joystick.getRawAxis(Axis.kLeftX.value));
+
+
 }
   }
 
