@@ -35,9 +35,9 @@ public class RobotContainer {
 
     drive.setDefaultCommand(new RunCommand(() -> {
       double db = OIConstants.kDriveDeadband;
-      double x   = -MathUtil.applyDeadband(1.5*driver.getLeftY(),  db);
-      double y   = -MathUtil.applyDeadband(1.5*driver.getLeftX(),  db);
-      double rot = -MathUtil.applyDeadband(1.5*driver.getRightX(), db);
+      double x   = -MathUtil.clamp(MathUtil.applyDeadband(driver.getLeftY(),  db) * OIConstants.kDriveInputGain, -1.0, 1.0);
+      double y   = -MathUtil.clamp(MathUtil.applyDeadband(driver.getLeftX(),  db) * OIConstants.kDriveInputGain, -1.0, 1.0);
+      double rot = -MathUtil.clamp(MathUtil.applyDeadband(driver.getRightX(), db) * OIConstants.kTurnInputGain, -1.0, 1.0);
       drive.drive(x, y, rot, fieldRelative);
     }, drive));
 
