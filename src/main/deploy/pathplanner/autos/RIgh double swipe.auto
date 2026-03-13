@@ -1,0 +1,49 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Right Out"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Right Intake"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "right come back"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Right out 2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Right Back 2.2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Right Back 2.4"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": false,
+  "folder": null,
+  "choreoAuto": false
+}

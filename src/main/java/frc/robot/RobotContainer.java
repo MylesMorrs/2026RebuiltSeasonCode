@@ -1,6 +1,7 @@
 package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.XboxController;
@@ -8,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -25,7 +27,7 @@ public class RobotContainer {
 
   public RobotContainer() {
     // Register NamedCommands here if needed (before building chooser)
-    // NamedCommands.registerCommand("Example", Commands.print("Hi"));
+    NamedCommands.registerCommand("Shoot", );
 
     // Build auto chooser with a DEFAULT auto name that matches a .auto file
     autoChooser = AutoBuilder.buildAutoChooser("new auto");
