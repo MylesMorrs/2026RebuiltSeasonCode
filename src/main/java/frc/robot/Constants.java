@@ -12,6 +12,7 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
+import java.util.Set;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -83,6 +84,15 @@ public final class Constants {
       public static final int ShooterMotorCanId = 12; 
       public static final int TransferMotorCanId = 13;
       public static final int AimingMotorCanId = 11; 
+      public static final double TurretAimKp = 0.02;
+      public static final double TurretAimMaxSpeed = 0.35;
+      public static final double TurretAimDeadbandDeg = 1.0;
+      // Positive value means hold the tag this many degrees off center.
+      public static final double TurretAimYawOffsetDeg = 0.0;
+      // Hold right bumper while auto-aiming to run shooter at fixed power.
+      public static final double TurretAutoShootPower = 0.35;
+      // Auto-shoot only when yaw error is within this tolerance.
+      public static final double TurretShootMaxYawErrorDeg = 2.5;
 
   }
 
@@ -117,6 +127,9 @@ public static final class ClimbingConstants
     public static final int kDriverControllerPort = 0;
     public static final int kManipulatorControllerPort = 1; 
     public static final double kDriveDeadband = 0.05;
+    // Teleop input gain to make drivetrain feel more responsive.
+    public static final double kDriveInputGain = 1.35;
+    public static final double kTurnInputGain = 1.35;
 
   }
 
@@ -150,6 +163,13 @@ public static final class ClimbingConstants
 
     // Keep this at kDefaultField until you lock in event field type.
     public static final AprilTagFields kAprilTagField = AprilTagFields.kDefaultField;
+
+    // Turret auto-aim target filtering by alliance.
+    // Update these IDs to match your strategy for the current game.
+    public static final Set<Integer> kBlueAllianceAimTagIds = Set.of(1);
+    public static final Set<Integer> kRedAllianceAimTagIds = Set.of(1);
+    // If true, use best visible tag when none match alliance filter.
+    public static final boolean kAllowAnyTagWhenNoAllowedSeen = true;
 
     // Pose estimator model noise (odometry process noise): x, y, theta.
     public static final double kStateStdDevX = 0.05;
