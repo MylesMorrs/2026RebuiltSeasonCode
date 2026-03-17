@@ -18,7 +18,14 @@ public class IntakeSubsystem {
 
     public static void SetIntakeSpeed(Double speed)
     {
-        FuelIntakeMotor1.set(speed);
+        double clamped = Math.max(-0.4, Math.min(0.4, speed));
+        FuelIntakeMotor1.set(clamped);
+    }
+
+    public static void SetIntakeSpeedOverride(Double speed)
+    {
+        double clamped = Math.max(-1.0, Math.min(1.0, speed));
+        FuelIntakeMotor1.set(clamped);
     }
 
      public static void SetPivotSpeed(Double speed)

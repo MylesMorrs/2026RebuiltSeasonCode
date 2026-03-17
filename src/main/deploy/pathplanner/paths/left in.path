@@ -3,51 +3,51 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.775,
-        "y": 3.129
+        "x": 7.773033333333334,
+        "y": 4.814555555555555
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.758773696903573,
-        "y": 2.879527141580847
+        "x": 7.137204658700177,
+        "y": 5.965416368374893
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "left out end"
     },
     {
       "anchor": {
-        "x": 5.775,
-        "y": 0.7413777777777772
+        "x": 6.019033333333335,
+        "y": 7.377344444444444
       },
       "prevControl": {
-        "x": 6.616896327274517,
-        "y": 1.2598607121259273
+        "x": 6.471082980446931,
+        "y": 7.194478468819646
       },
       "nextControl": {
-        "x": 5.134770162817662,
-        "y": 0.3470914103408774
+        "x": 5.5766688538983225,
+        "y": 7.556292514927754
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.5694999999999997,
-        "y": 1.1311555555555548
+        "x": 3.3588000000000005,
+        "y": 7.17271111111111
       },
       "prevControl": {
-        "x": 3.836277777777778,
-        "y": 0.546488888888889
+        "x": 5.715413825799225,
+        "y": 7.655534557725874
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "right shoot"
+      "linkedName": "left in out"
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 1.4254937163375176,
-      "rotationDegrees": 180.0
+      "waypointRelativePos": 1.810412926391375,
+      "rotationDegrees": 0.0
     }
   ],
   "constraintZones": [],
@@ -62,14 +62,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 2.0,
-    "rotation": -122.12499844038754
+    "velocity": 0,
+    "rotation": 45.0
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
-    "velocity": 2.0,
-    "rotation": -101.31
+    "velocity": 0,
+    "rotation": -88.95837332399005
   },
   "useDefaultConstraints": true
 }

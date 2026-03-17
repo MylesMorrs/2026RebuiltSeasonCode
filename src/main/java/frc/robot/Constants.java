@@ -30,8 +30,8 @@ public final class Constants {
   public static final class DriveConstants {
     // Driving Parameters - Note that these are not the maximum capable speeds of
     // the robot, rather the allowed maximum speeds
-    public static final double kMaxSpeedMetersPerSecond = 4.8;
-    public static final double kMaxAngularSpeed = 2 * Math.PI; // radians per second
+    public static final double kMaxSpeedMetersPerSecond = 50;
+    public static final double kMaxAngularSpeed = 4 * Math.PI; // radians per second
 
     // Chassis configuration
     public static final double kTrackWidth = Units.inchesToMeters(26.5);
@@ -71,6 +71,11 @@ public final class Constants {
       public static final int IntakePivot1CanId = 6; 
       public static final int IntakePivot2CanId = 7; 
 
+      public static final double kAutoIntakeSpeed = -0.8;
+      public static final double kAutoIntakeSeconds = 1.0;
+      public static final double kAutoIntakeDropSpeed = 0.6;
+      public static final double kAutoIntakeDropSeconds = 0.5;
+
  
 
 
@@ -84,6 +89,19 @@ public final class Constants {
       public static final int ShooterMotorCanId = 12; 
       public static final int TransferMotorCanId = 13;
       public static final int AimingMotorCanId = 11; 
+      public static final double kAutoTransferSpeed = 0.8;
+      public static final double kAutoShootSeconds = 1.0;
+      public static final double kAutoShootMinPower = 0.45;
+      public static final double kAutoShootMaxPower = 0.95;
+      public static final double kAutoShootMinDistanceMeters = 1.0;
+      public static final double kAutoShootMaxDistanceMeters = 4.0;
+      public static final double kAutoShootPowerOffsetStepPerLoop = 0.01;
+      public static final double kAutoShootPowerOffsetMax = 0.25;
+      public static final int kTurretEncoderDioChannel = 0; // TODO: set DIO channel for REV Through Bore
+      public static final double kTurretEncoderGearRatio = 1.0; // TODO: set actual turret gear ratio
+      public static final double kTurretEncoderOffsetDeg = 0.0; // TODO: set mechanical zero offset
+      public static final double kTurretSearchMaxDegrees = 90.0;
+      public static final double kTurretSearchSpeed = 0.2;
       public static final double TurretAimKp = 0.02;
       public static final double TurretAimMaxSpeed = 0.35;
       public static final double TurretAimDeadbandDeg = 1.0;
@@ -128,8 +146,9 @@ public static final class ClimbingConstants
     public static final int kManipulatorControllerPort = 1; 
     public static final double kDriveDeadband = 0.05;
     // Teleop input gain to make drivetrain feel more responsive.
-    public static final double kDriveInputGain = 1.35;
-    public static final double kTurnInputGain = 1.35;
+    public static final double kDriveInputGain = 2.3;
+    public static final double kTurnInputGain = 2.3;
+    public static final double kDriveSlowMultiplier = 0.4;
 
   }
 
@@ -166,7 +185,7 @@ public static final class ClimbingConstants
 
     // Turret auto-aim target filtering by alliance.
     // Update these IDs to match your strategy for the current game.
-    public static final Set<Integer> kBlueAllianceAimTagIds = Set.of(1);
+    public static final Set<Integer> kBlueAllianceAimTagIds = Set.of(21, 24, 25,26, 27, 18);
     public static final Set<Integer> kRedAllianceAimTagIds = Set.of(1);
     // If true, use best visible tag when none match alliance filter.
     public static final boolean kAllowAnyTagWhenNoAllowedSeen = true;

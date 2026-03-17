@@ -1,0 +1,175 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "drop intake"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "rigt out 1"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "start Intake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "drop intake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "drop intake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "start Intake"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "right 1 back"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "Shoot"
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "start transfer"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "New New New Path"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 4.0
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "stop Transfer"
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "stop Shoot"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "right one bck 2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "start Intake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "start transfer"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 4.0
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "stop Transfer"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "stop Shoot"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}

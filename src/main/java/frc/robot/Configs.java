@@ -16,7 +16,8 @@ public final class Configs {
             double drivingFactor = ModuleConstants.kWheelDiameterMeters * Math.PI
                     / ModuleConstants.kDrivingMotorReduction;
             double turningFactor = 2 * Math.PI;
-            double drivingVelocityFeedForward = 1 / ModuleConstants.kDriveWheelFreeSpeedRps;
+            double nominalVoltage = 12;
+            double drivingVelocityFeedForward = nominalVoltage / ModuleConstants.kDriveWheelFreeSpeedRps;
 
             drivingConfig
                     .idleMode(IdleMode.kBrake)
@@ -27,8 +28,9 @@ public final class Configs {
             drivingConfig.closedLoop
                     .feedbackSensor(FeedbackSensor.kPrimaryEncoder)
                     // These are example gains you may need to them for your own robot!
-                    .pidf(0.04, 0, 0, drivingVelocityFeedForward)
-                    .outputRange(-1, 1);
+                    .pid(0.04, 0, 0)
+                    .outputRange(-1, 1)
+                    .feedForward.kV(drivingVelocityFeedForward);
 
             turningConfig
                     .idleMode(IdleMode.kBrake)

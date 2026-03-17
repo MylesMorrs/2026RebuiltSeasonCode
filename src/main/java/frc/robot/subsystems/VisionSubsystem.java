@@ -1,8 +1,9 @@
 package frc.robot.subsystems;
 
+import java.util.HashSet;
+import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.Set;
-import java.util.HashSet;
 import org.photonvision.PhotonCamera;
 import org.photonvision.targeting.PhotonPipelineResult;
 import org.photonvision.targeting.PhotonTrackedTarget;
@@ -20,11 +21,11 @@ public class VisionSubsystem extends SubsystemBase {
     latestResult = null;
   }
 
-  public OptionalDouble getBestTargetYawDegrees() {
+  private Optional<PhotonTrackedTarget> getBestAimTarget() {
     if (latestResult == null || !latestResult.hasTargets()) {
       SmartDashboard.putBoolean("Vision/UsingAllowedTag", false);
       SmartDashboard.putNumber("Vision/TrackedTagId", -1);
-      return OptionalDouble.empty();
+      return Optional.empty();
     }
 
     var allianceOpt = DriverStation.getAlliance();
@@ -52,18 +53,34 @@ public class VisionSubsystem extends SubsystemBase {
       if (!VisionConstants.kAllowAnyTagWhenNoAllowedSeen) {
         SmartDashboard.putBoolean("Vision/UsingAllowedTag", false);
         SmartDashboard.putNumber("Vision/TrackedTagId", -1);
-        return OptionalDouble.empty();
+        return Optional.empty();
       }
 
       PhotonTrackedTarget bestAny = latestResult.getBestTarget();
       SmartDashboard.putBoolean("Vision/UsingAllowedTag", false);
       SmartDashboard.putNumber("Vision/TrackedTagId", bestAny.getFiducialId());
-      return OptionalDouble.of(bestAny.getYaw());
+      return Optional.of(bestAny);
     }
 
     SmartDashboard.putBoolean("Vision/UsingAllowedTag", true);
     SmartDashboard.putNumber("Vision/TrackedTagId", bestAllowed.getFiducialId());
-    return OptionalDouble.of(bestAllowed.getYaw());
+    return Optional.of(bestAllowed);
+  }
+
+  public OptionalDouble getBestTargetYawDegrees() {
+    var targetOpt = getBestAimTarget();
+    if (targetOpt.isEmpty()) {
+      return OptionalDouble.empty();
+    }
+    return OptionalDouble.of(targetOpt.get().getYaw());
+  }
+
+  public OptionalDouble getBestTargetDistanceMeters() {
+    var targetOpt = getBestAimTarget();
+    if (targetOpt.isEmpty()) {
+      return OptionalDouble.empty();
+    }
+    return OptionalDouble.of(targetOpt.get().getBestCameraToTarget().getTranslation().getNorm());
   }
 
   @Override

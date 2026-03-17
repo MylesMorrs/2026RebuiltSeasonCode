@@ -5,15 +5,53 @@
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "Right Out"
+            "name": "start Intake"
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Right Intake"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Right Out"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "drop intake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "start Intake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Short Right Intake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "start Intake"
+                }
+              }
+            ]
           }
         },
         {
@@ -23,21 +61,79 @@
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Right out 2"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "start transfer"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Shoot"
+                }
+              }
+            ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Right Back 2.2"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "start Intake"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "short Right out 2"
+                }
+              }
+            ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Right Back 2.4"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "start Intake"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Right Back 2.2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "start transfer"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Shoot"
+                }
+              }
+            ]
           }
         }
       ]
