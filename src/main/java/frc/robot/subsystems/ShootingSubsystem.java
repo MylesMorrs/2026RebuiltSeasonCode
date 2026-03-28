@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.math.MathUtil;
 
 public class ShootingSubsystem {
-    private static SparkFlex ShootingMotor; 
+    private static SparkFlex ShootingMotor;
+    private static SparkMax SpindexerMotor;  
     private static SparkMax TransferMotor; 
     private static SparkMax AimingMotor; 
     private static DutyCycleEncoder TurretEncoder;
@@ -19,6 +20,7 @@ public class ShootingSubsystem {
     public ShootingSubsystem()
     {
         ShootingMotor = new SparkFlex( ShootingConstants.ShooterMotorCanId, MotorType.kBrushless);
+        SpindexerMotor = new SparkMax( ShootingConstants.SpindexerMotorCanID, MotorType.kBrushless);
         TransferMotor = new SparkMax( ShootingConstants.TransferMotorCanId, MotorType.kBrushless);
         AimingMotor = new SparkMax( ShootingConstants.AimingMotorCanId, MotorType.kBrushed);  
         TurretEncoder = new DutyCycleEncoder(ShootingConstants.kTurretEncoderDioChannel);
@@ -31,6 +33,8 @@ public class ShootingSubsystem {
     public static void SetShootingSpeed(Double speed)
     {
         ShootingMotor.set(-speed);
+        SpindexerMotor.set(speed);
+
     }
 
      public static void SetTransferSpeed(Double speed)
