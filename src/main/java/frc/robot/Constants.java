@@ -76,8 +76,8 @@ public final class Constants {
   public static final class IntakeConstants
   {
       
-      public static final int FuelIntakeCanId = 5; 
-      public static final int IntakePivotCanId = 6;
+      public static final int FuelIntakeCanId = 7; 
+      public static final int IntakePivotCanId = 5;
        
 
       public static final double kAutoIntakeSpeed = -0.8;
@@ -97,7 +97,7 @@ public final class Constants {
       
       public static final int ShooterMotorCanId = 12; 
       //TODO set can id for spindexter
-      public static final int SpindexerMotorCanID = 14; 
+      public static final int SpindexerMotorCanID = 3; 
       public static final int TransferMotorCanId = 13;
       public static final int AimingMotorCanId = 11; 
       public static final double kAutoTransferSpeed = 0.8;
@@ -130,7 +130,7 @@ public static final class ClimbingConstants
    
     public static final int ClimbingMotor1CanId = 10; 
     //TODO set can id for climbing motor2
-    public static final int ClimbingMotor2CanId = 5; 
+    public static final int ClimbingMotor2CanId = 17; 
 
     
 
